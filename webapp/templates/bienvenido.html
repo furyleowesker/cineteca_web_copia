@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cineteca</title>
+    </head>
+    <body>
+        <h1>¡Bienvenido a la pagina de Cineteca!</h1>
+        <div>
+            Numero de Funciones: {{numero_funciones}}
+            Numero de Boletos: {{numero_boletos}}
+        </div>
+        <hr/>
+        <div>
+            <a href="nuevo_boleto/">Nuevo Boleto</a>
+        </div>
+        <hr/>
+        <div>
+            <ul>
+                {% for funcion in funciones %}
+                    <li>
+                        Funcion {{funcion.id}}: 
+                        {{funcion.hora}} 
+                        {{funcion.dia}} 
+                        {{funcion.pelicula}} 
+                        {{funcion.sala}}
+                        <a href="detalle_funcion/{{funcion.id}}">Ver detalle</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <hr/>
+        <div>
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Hora</th>
+                    <th>Fecha</th>
+                    <th>Pelicula</th>
+                    <th>Sala</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for funcion in funciones %}
+                <tr>
+                    <td>{{funcion.id}}</td>
+                    <td>{{funcion.hora}}</td>
+                    <td>{{funcion.dia}}</td>
+                    <td>{{funcion.pelicula}}</td>
+                    <td>{{funcion.sala}}</td>
+                    <td><a href="detalle_funcion/{{funcion.id}}">Ver</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <hr/>
+        <div>
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Funcion</th>
+                    <th>Numero Asiento</th>
+                    <th>Precio</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for boleto in boletos %}
+                <tr>
+                    <td>{{boleto.id}}</td>
+                    <td>{{boleto.funcion}}</td>
+                    <td>{{boleto.numero_asiento}}</td>
+                    <td>$ {{boleto.precio}}</td>
+                    <td><a href="detalle_boleto/{{boleto.id}}">Ver</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <hr/>
+    </body>
+</html>
