@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Detalle Boleto</title>
+    </head>
+    <body>
+        <h1>Detalle Boleto</h1>
+        <div>ID: {{boleto.id}}</div>
+        <div>Funcion: {{boleto.funcion}}</div>
+        <div>Numero de asiento: {{boleto.numero_asiento}}</div>
+        <div>Precio del boleto: $ {{boleto.precio}}</div>
+        <a href="{% url 'index' %}">Regresar al incio</a>
+    </body>
+</html>
